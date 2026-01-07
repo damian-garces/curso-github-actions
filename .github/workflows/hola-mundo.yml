@@ -13,15 +13,12 @@ jobs:
     - name: Checkout código
       uses: actions/checkout@v4
     
-    # Instala .NET SDK en la máquina virtual
+    # Instala .NET 10 SDK en la máquina virtual
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '8.0.x'  # Versión de .NET a instalar
+        dotnet-version: '10.0.x'  # Usa .NET 10
     
-    # Crea un proyecto temporal para compilar el archivo
-    - name: Crear proyecto y compilar
-      run: |
-        dotnet new console -n TempProject -o .
-        cp Program.cs ./Program.cs
-        dotnet run
+    # Ejecuta el archivo C# directamente (sin proyecto!)
+    - name: Ejecutar archivo C#
+      run: dotnet run Program.cs
