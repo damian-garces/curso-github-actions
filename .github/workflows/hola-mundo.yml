@@ -19,10 +19,9 @@ jobs:
       with:
         dotnet-version: '8.0.x'  # Versión de .NET a instalar
     
-    # Compila el archivo .cs a un ejecutable
-    - name: Compilar
-      run: csc Program.cs
-    
-    # Ejecuta el programa compilado
-    - name: Ejecutar
-      run: mono Program.exe
+    # Crea un proyecto temporal para compilar el archivo
+    - name: Crear proyecto y compilar
+      run: |
+        dotnet new console -n TempProject -o .
+        cp Program.cs ./Program.cs
+        dotnet run
