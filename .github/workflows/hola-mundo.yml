@@ -1,5 +1,6 @@
 # Nombre del workflow que aparecerá en GitHub
 name: Build and Run C# App
+run-name: My First Workflow
 
 # Define cuándo se ejecuta el workflow
 on: [push]
